@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="outputc.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1365a70431.js" crossorigin="anonymous"></script>
+</head>
+<body  class="h-screen bg-gradient-to-br from-blue-600 via-purple-800 to-blue-700 flex flex-col items-center justify-center">
+<h1 class="text-4xl font-semibold text-white text-center mb-4">Calculator</h1>
+<div class="bg-gray-900 rounded-lg shadow-lg p-8 w-96 border border-black">
+    <div class="grid grid-cols-4 gap-4">
+        <input type="text" class="text-left text-2xl col-span-4 p-6 border border-black rounded bg-gray-700 text-white" placeholder="0">
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">(</button>
+        <button class= "text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">)</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">.</button>
+        <button class="text-2xl font-bold bg-blue-500 text-white p-4 rounded hover:bg-blue-600">AC</button>
+
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">7</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">8</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">9</button>
+        <button class="text-2xl font-bold bg-blue-500 text-white p-4 rounded hover:bg-blue-600"><i class="fas fa-divide"></i></button>
+        
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">4</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">5</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">6</button>
+        <button class="text-2xl font-bold bg-blue-500 text-white p-4 rounded hover:bg-blue-600"><i class="fas fa-times"></i></button>
+        
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">1</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">2</button>
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300">3</button>
+        <button class="text-2xl font-bold bg-blue-500 text-white p-4 rounded hover:bg-blue-600"><i class="fas fa-minus"></i></button>
+        
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300 col-span-2">0</button>
+        <button class="text-2xl font-bold bg-blue-500 text-white p-4 rounded hover:bg-blue-600">+</button>
+        <button class="text-2xl font-bold bg-blue-500 text-white p-4 rounded hover:bg-blue-600 text-xl font-extrabold"><i class="fa-solid fa-percent"></i></button>
+
+        <button class="text-2xl font-bold bg-gray-200 p-4 rounded hover:bg-gray-300 col-span-2">π</button>
+        <button class="text-2xl font-bold bg-green-500 text-white p-4 rounded hover:bg-green-600">=</button>
+        <button class="bg-pink-500 text-white p-4 rounded text-2xl font-bold hover:bg-red-600"><i class="fa-regular fa-heart"></i></button>
+    </div>
+<script>
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
+            const input = document.querySelector('input');
+            if (button.textContent === 'AC') {
+                input.value = '';
+            }
+            else if (button.textContent === '=') {
+                try {
+                    input.value = eval(input.value);
+                } catch (e) {
+                    input.value = '❤️';
+                }
+            } else {
+                input.value += button.textContent;
+            }
+        });
+    });
+    </script>
+</body>
+</html>
